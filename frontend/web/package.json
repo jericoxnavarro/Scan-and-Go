@@ -9,11 +9,13 @@
     "file-saver": "^2.0.5",
     "html2canvas": "^1.0.0-rc.7",
     "node-sass": "4.14.1",
+    "philippines": "^1.0.0",
     "qrcode.react": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

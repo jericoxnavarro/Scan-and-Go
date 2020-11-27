@@ -26,6 +26,20 @@ $black: #000000;
       }
       .log-in-form {
         border-radius: 20px;
+
+        .error {
+          background-color: $red;
+          height: 60px;
+          width: 60%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10px;
+          margin-top: 20px;
+          .error-text {
+            color: $primary;
+          }
+        }
         .log-in-btn {
           height: 80px;
           width: 300px;

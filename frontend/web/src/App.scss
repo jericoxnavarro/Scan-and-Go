@@ -20,7 +20,7 @@ $text: #b3c0cc;
 
 html {
   font-size: 45px;
-  background-color: $secondary;
+  background-color: $primary;
   @media screen and (max-width: 1800px) {
     font-size: 45px;
   }
@@ -227,6 +227,7 @@ select {
   align-items: center;
   flex-direction: column;
   padding: 0.5rem 2.5rem;
+  background-color: $secondary;
   @media screen and (max-width: 1800px) {
     padding: 0.5rem 2.5rem;
   }

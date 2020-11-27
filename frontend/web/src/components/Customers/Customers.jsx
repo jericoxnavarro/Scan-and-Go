@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Customers.scss";
 import QRCode from "qrcode.react";
 import html2canvas from "html2canvas";
 import { saveAs } from "file-saver";
+import provinces from "philippines/provinces";
+import cities from "philippines/cities";
 
 const Customers = () => {
   const [customer, setCustomer] = useState("");
+  const [reg, setReg] = useState("MM");
+  const [city, setCity] = useState([]);
+  console.log(provinces);
+  useEffect(() => {
+    setCity([]);
+    for (let i = 0; i < cities.length; i++) {
+      if (cities[i].province === reg) {
+        setCity((oldArray) => [...oldArray, cities[i]]);
+      }
+    }
+  }, [reg]);
+
   const submit = (e) => {
     e.preventDefault();
     let datas = [];
@@ -13,7 +27,6 @@ const Customers = () => {
     data.forEach(function (value, key) {
       datas.push(value);
     });
-    console.log(datas);
 
     fetch("http://localhost:3001/api/customers/add", {
       method: "POST",
@@ -24,11 +37,10 @@ const Customers = () => {
         email: datas[3],
         birthDay: datas[4],
         sex: datas[5],
-        province: datas[6],
+        province: datas[6].substr(0, datas[6].indexOf(",")),
         city: datas[7],
         barangay: datas[8],
-        streetAddress: datas[9],
-        phoneNumber: datas[10],
+        phoneNumber: datas[9],
       }),
       headers: { "Content-Type": "application/json" },
     })
@@ -107,23 +119,39 @@ const Customers = () => {
                 <div className="input-2">
                   <label htmlFor="provice" name="provice">
                     <span>Provice</span>
-                    <select required name="provice">
-                      <option value="Ilocos Sur">Ilocos Sur</option>
+                    <select
+                      required
+                      name="provice"
+                      onChange={(e) =>
+                        setReg(
+                          e.target.value.substr(
+                            e.target.value.indexOf(",") + 1,
+                            e.target.value.length
+                          )
+                        )
+                      }
+                    >
+                      {provinces.map((province, index) => (
+                        <option
+                          key={index}
+                          value={[province.name, province.key]}
+                        >
+                          {province.name}
+                        </option>
+                      ))}
                     </select>
                   </label>
                   <label htmlFor="city" name="city">
                     <span>City</span>
                     <select required name="city">
-                      <option value="Vigan">Vigan</option>
+                      {city.map((cit, index) => (
+                        <option key={index} value={cit.name}>
+                          {cit.name}
+                        </option>
+                      ))}
                     </select>
                   </label>
                 </div>
-                <label htmlFor="barangay" name="barangay">
-                  <span>Barangay</span>
-                  <select required name="barangay">
-                    <option value="Anonang Mayor">Anonang Mayor</option>
-                  </select>
-                </label>
                 <label htmlFor="s-address" name="s-address">
                   <span>Street Address</span>
                   <input
@@ -177,7 +205,7 @@ const Customers = () => {
                   } ${customer.middleName.charAt(0)}. ${
                     customer.lastName
                   }`}</h2>
-                  <p className="info">{`${customer.streetAddress} ${customer.barangay} ${customer.city} ${customer.province}`}</p>
+                  <p className="info">{`${customer.barangay} ${customer.city} ${customer.province}`}</p>
                   <p className="info">{`0${customer.phoneNumber}`}</p>
                   <p className="info">{`${customer.sex}`}</p>
                   <p className="info">{`${customer.email}`}</p>

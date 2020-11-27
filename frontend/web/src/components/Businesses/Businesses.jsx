@@ -1,8 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Businesses.scss";
+import provinces from "philippines/provinces";
+import cities from "philippines/cities";
 
 const Businesses = () => {
   const [business, setBusiness] = useState("");
+  const [reg, setReg] = useState("MM");
+  const [city, setCity] = useState([]);
+  console.log(provinces);
+  useEffect(() => {
+    setCity([]);
+    for (let i = 0; i < cities.length; i++) {
+      if (cities[i].province === reg) {
+        setCity((oldArray) => [...oldArray, cities[i]]);
+      }
+    }
+  }, [reg]);
+
   const submit = (e) => {
     e.preventDefault();
     let datas = [];
@@ -18,12 +32,10 @@ const Businesses = () => {
         businessId: datas[0],
         businessName: datas[1],
         email: datas[2],
-        province: datas[3],
-        birthDay: datas[4],
-        city: datas[5],
-        barangay: datas[6],
-        streetAddress: datas[7],
-        phoneNumber: datas[8],
+        province: datas[3].substr(0, datas[3].indexOf(",")),
+        city: datas[4],
+        barangay: datas[5],
+        phoneNumber: datas[6],
       }),
       headers: { "Content-Type": "application/json" },
     })
@@ -69,30 +81,42 @@ const Businesses = () => {
                 <div className="input-2">
                   <label htmlFor="provice" name="provice">
                     <span>Provice</span>
-                    <select required name="provice">
-                      <option value="Ilocos Sur">Ilocos Sur</option>
+                    <select
+                      required
+                      name="provice"
+                      onChange={(e) =>
+                        setReg(
+                          e.target.value.substr(
+                            e.target.value.indexOf(",") + 1,
+                            e.target.value.length
+                          )
+                        )
+                      }
+                    >
+                      {provinces.map((province, index) => (
+                        <option
+                          key={index}
+                          value={[province.name, province.key]}
+                        >
+                          {province.name}
+                        </option>
+                      ))}
                     </select>
                   </label>
                   <label htmlFor="city" name="city">
                     <span>City</span>
                     <select required name="city">
-                      <option value="Vigan">Vigan</option>
+                      {city.map((cit, index) => (
+                        <option key={index} value={cit.name}>
+                          {cit.name}
+                        </option>
+                      ))}
                     </select>
                   </label>
                 </div>
-                <label htmlFor="barangay" name="barangay">
-                  <span>Barangay</span>
-                  <select required name="barangay">
-                    <option value="Anonang Mayor">Anonang Mayor</option>
-                  </select>
-                </label>
                 <label htmlFor="s-address" name="s-address">
-                  <span>Street Address</span>
-                  <input
-                    type="text"
-                    name="s-address"
-                    placeholder="Street Address"
-                  />
+                  <span>Barangay</span>
+                  <input type="text" name="s-address" placeholder="Barangay" />
                 </label>
 
                 <label htmlFor="p-number" name="p-number">

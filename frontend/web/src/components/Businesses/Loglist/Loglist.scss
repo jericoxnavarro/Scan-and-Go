@@ -1,0 +1,79 @@
+$primary: #ffffff;
+$secondary: #043353;
+$secondary-light: #383c58;
+$content: #7de89d;
+$text: #b3c0cc;
+$white: #ffffff;
+$black: #000000;
+$red: #eb6f6f;
+
+.Log-list {
+  width: 100%;
+  .hero {
+    height: 600px;
+    .hero-box {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 100px;
+    }
+  }
+  .content {
+    background-color: $primary;
+    padding-top: 100px;
+    .log-dates {
+      background-color: $secondary;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+      margin: 20px 0px;
+      width: 70%;
+      height: 150px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px;
+      .total-customers {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 10%;
+        border-radius: 50%;
+        background-color: $primary;
+
+        .total {
+          font-size: 1rem;
+        }
+      }
+      .log-info {
+        height: 100%;
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 10px;
+        margin-left: 10px;
+        margin-right: auto;
+        .log-date {
+          font-size: 1rem;
+          margin: 0px;
+        }
+        .log-id {
+          font-size: 0.45rem;
+        }
+      }
+      .check-btn {
+        height: 100%;
+        width: 20%;
+        padding: 15px;
+        button {
+          margin: 0px;
+        }
+      }
+    }
+  }
+}
