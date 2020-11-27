@@ -11,7 +11,6 @@ const CustomersSchema = new Schema({
   province: String,
   city: String,
   barangay: String,
-  streetAddress: String,
   phoneNumber: Number,
   Logs: [
     {

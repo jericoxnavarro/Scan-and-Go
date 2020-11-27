@@ -34,7 +34,6 @@ router.post("/customers/add", async (req, res) => {
     province: req.body.province,
     city: req.body.city,
     barangay: req.body.barangay,
-    streetAddress: req.body.streetAddress,
     phoneNumber: req.body.phoneNumber,
     Logs: [],
   });

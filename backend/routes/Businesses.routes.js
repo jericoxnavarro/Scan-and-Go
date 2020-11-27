@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Businesses = require("../models/Businesses.model");
 const Customers = require("../models/Customers.model");
+const fetch = require("node-fetch");
 
 // Get all Businesses
 router.get("/businesses", async (req, res) => {
@@ -56,6 +57,7 @@ router.get("/businesses/:businesseID/:Date", async (req, res) => {
         arrLogs.push(businesse.customersLogs[i]);
       }
     }
+
     res.json(arrLogs);
   } catch (err) {
     res.json({ message: err });
@@ -71,7 +73,6 @@ router.post("/businesses/add", async (req, res) => {
     province: req.body.province,
     city: req.body.city,
     barangay: req.body.barangay,
-    streetAddress: req.body.streetAddress,
     phoneNumber: req.body.phoneNumber,
     logList: [],
     customersLogs: [],
@@ -95,7 +96,10 @@ router.put(
       const fullTime = `${date.getHours()}:${date.getMinutes()}`;
       let addDate;
       await Businesses.find(
-        { logList: { $elemMatch: { logDate: fullDate } } },
+        {
+          _id: req.params.businessId,
+          logList: { $elemMatch: { logDate: fullDate } },
+        },
         async (err, res) => {
           if (res.length) {
             addDate = "";
@@ -133,8 +137,12 @@ router.put(
       );
 
       let addDateCustomer;
+
       await Customers.find(
-        { Logs: { $elemMatch: { businessID: req.params.businessId } } },
+        {
+          _id: req.params.customerId,
+          Logs: { $elemMatch: { businessID: req.params.businessId } },
+        },
         async (err, res) => {
           if (res.length) {
             addDateCustomer = "";

@@ -8,7 +8,6 @@ const BusinessesSchema = new Schema({
   province: String,
   city: String,
   barangay: String,
-  streetAddress: String,
   phoneNumber: Number,
   logList: [
     {
