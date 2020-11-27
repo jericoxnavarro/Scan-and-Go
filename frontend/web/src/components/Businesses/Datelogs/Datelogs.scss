@@ -7,7 +7,7 @@ $white: #ffffff;
 $black: #000000;
 $red: #eb6f6f;
 
-.Log-list {
+.datelogs {
   width: 100%;
   .hero {
     height: 600px;
@@ -20,8 +20,16 @@ $red: #eb6f6f;
       padding-top: 100px;
     }
   }
-  .content {
+  .logs {
     background-color: $primary;
     padding-top: 100px;
+    .grid-logs {
+      height: 100%;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 40px;
+      row-gap: 40px;
+    }
   }
 }

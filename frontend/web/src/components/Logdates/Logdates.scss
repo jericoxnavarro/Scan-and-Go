@@ -1,0 +1,116 @@
+$primary: #ffffff;
+$secondary: #043353;
+$secondary-light: #383c58;
+$content: #7de89d;
+$text: #b3c0cc;
+$white: #ffffff;
+$black: #000000;
+$red: #eb6f6f;
+
+.log-dates {
+  background-color: $secondary;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  margin: 20px 0px;
+  width: 70%;
+  height: 150px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  .total-customers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 10%;
+    border-radius: 50%;
+    background-color: $primary;
+
+    .total {
+      font-size: 1rem;
+    }
+  }
+  .log-info {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: auto;
+    .log-date {
+      font-size: 1rem;
+      margin: 0px;
+    }
+    .log-id {
+      font-size: 0.45rem;
+    }
+  }
+  .check-btn {
+    height: 100%;
+    width: 20%;
+    padding: 15px;
+    button {
+      margin: 0px;
+
+      .check {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.logs {
+  background-color: $primary;
+  padding: 0;
+  align-items: flex-start;
+  width: 100%;
+  margin: 100px 0px;
+
+  .line {
+    align-self: center;
+    width: 90%;
+    border: 3px solid $secondary;
+    margin: 40px 0px;
+    border-radius: 20px;
+  }
+  .up {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .date {
+      color: $secondary;
+      margin-right: auto;
+      margin-left: 50px;
+    }
+    .back-btn {
+      height: 100%;
+      width: 15%;
+      padding: 10px;
+      margin-right: 50px;
+      button {
+        margin: 0px;
+      }
+    }
+  }
+  .grid-logs {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    row-gap: 40px;
+  }
+}

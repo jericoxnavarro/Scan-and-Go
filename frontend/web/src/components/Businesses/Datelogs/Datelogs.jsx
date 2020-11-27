@@ -1,18 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./Homebusiness.scss";
+import "./Datelogs.scss";
 import { BusinessesContext } from "../../../context/Businesses.context";
 import Customerbox from "../../Customerinfo/Customerbox";
 
-const Homebusiness = () => {
-  const [business, setBusiness] = useContext(BusinessesContext);
+const Datelogs = ({ date }) => {
+  console.log(date);
   const [customers, setCustomers] = useState([]);
+  const [business, setBusiness] = useContext(BusinessesContext);
   useEffect(() => {
     const getCustomers = async () => {
-      console.log(business);
-      let date = new Date();
-      const fullDate = `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`;
       const response = await fetch(
-        `http://localhost:3001/api/businesses/${business}/${fullDate}`
+        `http://localhost:3001/api/businesses/${business}/${date}`
       );
       const data = await response.json();
       console.log(data);
@@ -20,16 +18,15 @@ const Homebusiness = () => {
     };
     getCustomers();
   }, [customers]);
-
   return (
     <>
-      <main className="home-business">
+      <main className="datelogs">
         <div className="container hero">
           <div className="hero-box">
-            <h1 className="Title">Logs Today</h1>
+            <h1 className="title">{date}</h1>
           </div>
         </div>
-        <div className="container logss">
+        <div className="container logs">
           <div className="grid-logs">
             {customers.map((customer, index) => (
               <div key={customer._id} className="box">
@@ -43,4 +40,4 @@ const Homebusiness = () => {
   );
 };
 
-export default Homebusiness;
+export default Datelogs;

@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { BusinessesContext } from "../../../context/Businesses.context";
 import "./Loglist.scss";
+import Logdates from "../../Logdates/Logdates";
 
 const Loglist = () => {
+  const [business, setBusiness] = useContext(BusinessesContext);
+  const [logs, setLogs] = useState([]);
+  useEffect(() => {
+    const getLogs = async () => {
+      const response = await fetch(
+        `http://localhost:3001/api/businesses/${business}/loglist`
+      );
+      const data = await response.json();
+      setLogs(data);
+    };
+    getLogs();
+  }, []);
   return (
     <>
       <main className="Log-list">
@@ -11,42 +25,12 @@ const Loglist = () => {
           </div>
         </div>
         <div className="container content">
-          <div className="log-dates">
-            <div className="total-customers">
-              <h3 className="total">33</h3>
-            </div>
-            <div className="log-info">
-              <h2 className="log-date">Nov 25 2020</h2>
-              <p className="log-id">690082780230713386</p>
-            </div>
-            <div className="check-btn">
-              <button className="primary-btn">Check</button>
-            </div>
-          </div>
-          <div className="log-dates">
-            <div className="total-customers">
-              <h3 className="total">33</h3>
-            </div>
-            <div className="log-info">
-              <h2 className="log-date">Nov 25 2020</h2>
-              <p className="log-id">690082780230713386</p>
-            </div>
-            <div className="check-btn">
-              <button className="primary-btn">Check</button>
-            </div>
-          </div>
-          <div className="log-dates">
-            <div className="total-customers">
-              <h3 className="total">33</h3>
-            </div>
-            <div className="log-info">
-              <h2 className="log-date">Nov 25 2020</h2>
-              <p className="log-id">690082780230713386</p>
-            </div>
-            <div className="check-btn">
-              <button className="primary-btn">Check</button>
-            </div>
-          </div>
+          {logs
+            .slice(0)
+            .reverse()
+            .map((log, index) => (
+              <Logdates key={index} logs={log} />
+            ))}
         </div>
       </main>
     </>

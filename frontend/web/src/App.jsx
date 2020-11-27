@@ -7,6 +7,7 @@ import Login from "./components/Login/Login";
 import Homebusiness from "./components/Businesses/Home/Homebusiness";
 import { BusinessesProvider } from "./context/Businesses.context";
 import Loglist from "./components/Businesses/Loglist/Loglist";
+import Datelogs from "./components/Businesses/Datelogs/Datelogs";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/business" component={Homebusiness} />
             <Route path="/loglist" component={Loglist} />
+            <Route path="/datelogs" component={Datelogs} />
           </Switch>
         </Router>
       </div>
