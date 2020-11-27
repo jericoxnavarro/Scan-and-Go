@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Businesses = require("../models/Businesses.model");
+const Customers = require("../models/Customers.model");
 
 // Get all Businesses
 router.get("/businesses", async (req, res) => {
@@ -17,6 +18,45 @@ router.get("/businesses/:businesseID", async (req, res) => {
   try {
     const businesse = await Businesses.findById(req.params.businesseID);
     res.json(businesse);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+// Get Businesse Loglist
+router.get("/businesses/:businesseID/loglist", async (req, res) => {
+  try {
+    let arrDates = [];
+    const businesse = await Businesses.findById(req.params.businesseID);
+    for (let e = 0; e < businesse.logList.length; e++) {
+      let arrLogs = [];
+      for (let i = 0; i < businesse.customersLogs.length; i++) {
+        if (
+          businesse.logList[e].logDate === businesse.customersLogs[i].logDate
+        ) {
+          arrLogs.push(businesse.customersLogs[i]);
+        }
+      }
+      let cache = { data: businesse.logList[e], length: arrLogs.length };
+      arrDates.push(cache);
+    }
+    res.json(arrDates);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+// Get Businesse customersLogs using Date
+router.get("/businesses/:businesseID/:Date", async (req, res) => {
+  try {
+    let arrLogs = [];
+    const businesse = await Businesses.findById(req.params.businesseID);
+    for (let i = 0; i < businesse.customersLogs.length; i++) {
+      if (businesse.customersLogs[i].logDate === req.params.Date) {
+        arrLogs.push(businesse.customersLogs[i]);
+      }
+    }
+    res.json(arrLogs);
   } catch (err) {
     res.json({ message: err });
   }
@@ -53,16 +93,32 @@ router.put(
       let date = new Date();
       const fullDate = `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`;
       const fullTime = `${date.getHours()}:${date.getMinutes()}`;
-      const addDate = await Businesses.update(
+      let addDate;
+      await Businesses.find(
+        { logList: { $elemMatch: { logDate: fullDate } } },
+        async (err, res) => {
+          if (res.length) {
+            addDate = "";
+          } else {
+            addDate = await Businesses.updateOne(
+              { _id: req.params.businessId },
+              {
+                $push: {
+                  logList: [
+                    {
+                      logDate: fullDate,
+                    },
+                  ],
+                },
+              }
+            );
+          }
+        }
+      );
+
+      const addLogs = await Businesses.updateOne(
         { _id: req.params.businessId },
         {
-          $push: {
-            logList: [
-              {
-                logDate: fullDate,
-              },
-            ],
-          },
           $push: {
             customersLogs: [
               {
@@ -75,8 +131,47 @@ router.put(
           },
         }
       );
-      let obj = await addDate;
-      console.log(obj);
+
+      let addDateCustomer;
+      await Customers.find(
+        { Logs: { $elemMatch: { businessID: req.params.businessId } } },
+        async (err, res) => {
+          if (res.length) {
+            addDateCustomer = "";
+          } else {
+            addDateCustomer = await Customers.updateOne(
+              { _id: req.params.customerId },
+              {
+                $push: {
+                  Logs: [
+                    {
+                      logDate: fullDate,
+                      businessID: req.params.businessId,
+                    },
+                  ],
+                },
+              }
+            );
+          }
+        }
+      );
+
+      const addLogsCustomer = await Customers.updateOne(
+        { _id: req.params.customerId },
+        {
+          $push: {
+            logsBusinesses: [
+              {
+                logsDate: fullDate,
+                businessID: req.params.businessId,
+                customerTemp: req.params.customerTemp,
+                logTime: fullTime,
+              },
+            ],
+          },
+        }
+      );
+      res.json({ addDate, addLogs, addDateCustomer, addLogsCustomer });
     } catch (err) {
       res.json({ message: err });
     }
