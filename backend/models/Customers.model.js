@@ -15,16 +15,16 @@ const CustomersSchema = new Schema({
   phoneNumber: Number,
   Logs: [
     {
-      logsDate: Date,
-      logsBusinesses: [
-        {
-          businessName: String,
-          businessID: Number,
-          businessAddress: String,
-          customerTemp: String,
-          logTime: String,
-        },
-      ],
+      logsDate: String,
+      businessID: String,
+    },
+  ],
+  logsBusinesses: [
+    {
+      logsDate: String,
+      businessID: String,
+      customerTemp: String,
+      logTime: String,
     },
   ],
 });
