@@ -1,0 +1,78 @@
+$red: #eb6f6f;
+$primary: #ffffff;
+$secondary: #043353;
+$secondary-light: #383c58;
+$content: #7de89d;
+$text: #b3c0cc;
+
+.main-nav {
+  position: absolute;
+  height: 150px;
+  width: 100%;
+  background-color: $secondary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  .container {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    flex-direction: row;
+    background-color: #285a3700;
+    padding: 0px 5em;
+    .login-btn {
+      height: 100%;
+      width: 6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 35px 20px;
+      margin-left: auto;
+
+      .login {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: #ffffff;
+      }
+    }
+    .nav-items {
+      list-style: none;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .nav-item {
+        height: 100%;
+        margin: 0px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .link {
+          font-size: 0.5em;
+          text-decoration: none;
+          font-weight: 600;
+          color: $text;
+        }
+      }
+    }
+    .brand-logo {
+      height: 100%;
+      width: 200px;
+      display: block;
+      margin-right: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: $content;
+    }
+  }
+}
