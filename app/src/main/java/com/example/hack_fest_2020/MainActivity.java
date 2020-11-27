@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     private void bottomMenu() {
             chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
                 @Override
