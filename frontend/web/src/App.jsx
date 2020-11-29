@@ -8,6 +8,8 @@ import Homebusiness from "./components/Businesses/Home/Homebusiness";
 import { BusinessesProvider } from "./context/Businesses.context";
 import Loglist from "./components/Businesses/Loglist/Loglist";
 import Datelogs from "./components/Businesses/Datelogs/Datelogs";
+import Home from "./components/Home/Home";
+import Customerlist from "./components/Businesses/Customerlist/Customerlist";
 
 function App() {
   return (
@@ -16,10 +18,12 @@ function App() {
         <Router>
           <Navbar />
           <Switch>
+            <Route exact path="/" component={Home} />
             <Route path="/customers" component={Customers} />
             <Route path="/businesses" component={Businesses} />
             <Route path="/login" component={Login} />
             <Route path="/business" component={Homebusiness} />
+            <Route path="/customerslist" component={Customerlist} />
             <Route path="/loglist" component={Loglist} />
             <Route path="/datelogs" component={Datelogs} />
           </Switch>

@@ -11,14 +11,14 @@ const Logdates = ({ logs }) => {
   useEffect(() => {
     const getCustomers = async () => {
       const response = await fetch(
-        `http://localhost:3001/api/businesses/${business}/${logs.data.logDate}`
+        `https://hackfest-2020.herokuapp.com/api/businesses/${business}/${logs.data.logDate}`
       );
       const data = await response.json();
       console.log(data);
       setCustomers(data);
     };
     getCustomers();
-  }, [customers]);
+  }, []);
 
   if (change === "") {
     return (

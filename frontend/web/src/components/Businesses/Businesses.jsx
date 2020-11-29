@@ -26,7 +26,7 @@ const Businesses = () => {
     });
     console.log(datas);
 
-    fetch("http://localhost:3001/api/businesses/add", {
+    fetch("https://hackfest-2020.herokuapp.com/api/businesses/add", {
       method: "POST",
       body: JSON.stringify({
         businessId: datas[0],
@@ -146,7 +146,10 @@ const Businesses = () => {
         <div className="container">
           <div className="form-box">
             <div className="businessCO-id">
-              <h1 className="remind">Log in Using this CO ID</h1>
+              <h1 className="remind">Your S&G ID</h1>
+              <p>
+                Please save this! as this is your credentials in Scan&Go Web App
+              </p>
               <h2 className="business-CO-ID">{business._id}</h2>
             </div>
           </div>

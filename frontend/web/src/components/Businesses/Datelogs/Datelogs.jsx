@@ -4,20 +4,21 @@ import { BusinessesContext } from "../../../context/Businesses.context";
 import Customerbox from "../../Customerinfo/Customerbox";
 
 const Datelogs = ({ date }) => {
-  console.log(date);
   const [customers, setCustomers] = useState([]);
-  const [business, setBusiness] = useContext(BusinessesContext);
+  const [business] = useContext(BusinessesContext);
+
   useEffect(() => {
     const getCustomers = async () => {
       const response = await fetch(
-        `http://localhost:3001/api/businesses/${business}/${date}`
+        `https://hackfest-2020.herokuapp.com/api/businesses/${business}/${date}`
       );
       const data = await response.json();
       console.log(data);
       setCustomers(data);
     };
     getCustomers();
-  }, [customers]);
+  }, []);
+
   return (
     <>
       <main className="datelogs">

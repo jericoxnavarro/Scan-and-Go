@@ -4,12 +4,12 @@ import "./Loglist.scss";
 import Logdates from "../../Logdates/Logdates";
 
 const Loglist = () => {
-  const [business, setBusiness] = useContext(BusinessesContext);
+  const [business] = useContext(BusinessesContext);
   const [logs, setLogs] = useState([]);
   useEffect(() => {
     const getLogs = async () => {
       const response = await fetch(
-        `http://localhost:3001/api/businesses/${business}/loglist`
+        `https://hackfest-2020.herokuapp.com/api/businesses/${business}/loglist`
       );
       const data = await response.json();
       setLogs(data);

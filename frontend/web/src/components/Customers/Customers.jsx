@@ -28,7 +28,7 @@ const Customers = () => {
       datas.push(value);
     });
 
-    fetch("http://localhost:3001/api/customers/add", {
+    fetch("https://hackfest-2020.herokuapp.com/api/customers/add", {
       method: "POST",
       body: JSON.stringify({
         firstName: datas[0],
@@ -187,33 +187,35 @@ const Customers = () => {
           <div className="container">
             <div className="block"></div>
             <div className="form-box">
-              <div className="customerCO-id" id="customerID">
-                <h1 className="logo">CO</h1>
-                <div className="qrcode">
-                  <div className="qrbox">
-                    <QRCode
-                      size={350}
-                      fgColor="#043353"
-                      bgColor="#ffffff"
-                      value={customer._id}
-                    />
+              <div className="wrapper">
+                <div className="customerCO-id" id="customerID">
+                  <h1 className="logo">S&G</h1>
+                  <div className="qrcode">
+                    <div className="qrbox">
+                      <QRCode
+                        size={350}
+                        fgColor="#043353"
+                        bgColor="#ffffff"
+                        value={customer._id}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="customer-info">
-                  <h2 className="customer-name">{`${
-                    customer.firstName
-                  } ${customer.middleName.charAt(0)}. ${
-                    customer.lastName
-                  }`}</h2>
-                  <p className="info">{`${customer.barangay} ${customer.city} ${customer.province}`}</p>
-                  <p className="info">{`0${customer.phoneNumber}`}</p>
-                  <p className="info">{`${customer.sex}`}</p>
-                  <p className="info">{`${customer.email}`}</p>
+                  <div className="customer-info">
+                    <h2 className="customer-name">{`${
+                      customer.firstName
+                    } ${customer.middleName.charAt(0)}. ${
+                      customer.lastName
+                    }`}</h2>
+                    <p className="info">{`${customer.barangay} ${customer.city} ${customer.province}`}</p>
+                    <p className="info">{`0${customer.phoneNumber}`}</p>
+                    <p className="info">{`${customer.sex}`}</p>
+                    <p className="info">{`${customer.email}`}</p>
+                  </div>
                 </div>
               </div>
               <div className="download-id">
                 <button className="primary-btn" onClick={downloadID}>
-                  Download your CO ID
+                  Download your S&G ID
                 </button>
               </div>
             </div>

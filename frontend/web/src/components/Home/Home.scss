@@ -1,0 +1,76 @@
+$red: #eb6f6f;
+$primary: #ffffff;
+$secondary: #043353;
+$secondary-light: #383c58;
+$content: #7de89d;
+$text: #b3c0cc;
+$white: #ffffff;
+$black: #000000;
+$red: #eb6f6f;
+
+.home {
+  width: 100%;
+  height: 100vh;
+  .container {
+    flex-direction: row;
+    padding: 0px 10px;
+    padding-top: 100px;
+    padding-bottom: 0px;
+    padding-right: 40px;
+    .hero {
+      width: 50%;
+      height: 100%;
+      background-color: $secondary;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      padding-left: 150px;
+
+      .title {
+        margin: 0px;
+      }
+      .short {
+        line-height: normal;
+        margin-bottom: 10px;
+        font-size: 0.65rem;
+        color: $text;
+      }
+      .create-btn {
+        height: 80px;
+        width: 400px;
+        margin: 20px 0px;
+        margin-bottom: 50px;
+
+        button {
+          margin: 0px;
+          overflow: hidden;
+          .create {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+            color: $primary;
+          }
+        }
+      }
+    }
+    .logo-main {
+      width: 50%;
+      height: 100%;
+      padding: 50px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      overflow: hidden;
+
+      img {
+        transform: translate(100px, 250px);
+        height: 250%;
+        width: 250%;
+      }
+    }
+  }
+}

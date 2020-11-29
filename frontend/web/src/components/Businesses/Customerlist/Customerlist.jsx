@@ -1,22 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./Homebusiness.scss";
+import "./Customerlist.scss";
 import { BusinessesContext } from "../../../context/Businesses.context";
 import Customerbox from "../../Customerinfo/Customerbox";
 
-const Homebusiness = () => {
+const Customerlist = () => {
   const [business] = useContext(BusinessesContext);
+
   const [customers, setCustomers] = useState([]);
+  const [final, setFinal] = useState([]);
   useEffect(() => {
     const getCustomers = async () => {
-      let date = new Date();
-      const fullDate = `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`;
       const response = await fetch(
-        `https://hackfest-2020.herokuapp.com/api/businesses/${business}/${fullDate}`
+        `https://hackfest-2020.herokuapp.com/api/businesses/${business}`
       );
       const data = await response.json();
-      setCustomers(data);
+      setCustomers(data.customersLogs);
     };
     getCustomers();
+    console.log(customers);
+    function getUnique(arr, comp) {
+      const unique = arr
+        .map((e) => e[comp])
+        .map((e, i, final) => final.indexOf(e) === i && i)
+        .filter((e) => arr[e])
+        .map((e) => arr[e]);
+
+      return unique;
+    }
+    console.log(getUnique(customers, "customerId"));
   }, []);
 
   return (
@@ -24,7 +35,7 @@ const Homebusiness = () => {
       <main className="home-business">
         <div className="container hero">
           <div className="hero-box">
-            <h1 className="Title">Logs Today</h1>
+            <h1 className="Title">Customer List</h1>
           </div>
         </div>
         <div className="container logss">
@@ -41,4 +52,4 @@ const Homebusiness = () => {
   );
 };
 
-export default Homebusiness;
+export default Customerlist;

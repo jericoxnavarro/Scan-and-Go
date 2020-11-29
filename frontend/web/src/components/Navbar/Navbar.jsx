@@ -7,13 +7,13 @@ const cookies = new Cookies();
 
 const Navbar = () => {
   const [business, setBusiness] = useContext(BusinessesContext);
-  if (business === "") {
+  if (business === undefined) {
     return (
       <>
         <nav className="main-nav">
           <div className="container">
             <Link className="brand-logo" to="/">
-              CO
+              S&G
             </Link>
             <ul className="nav-items">
               <li className="nav-item">
@@ -49,7 +49,7 @@ const Navbar = () => {
         <nav className="main-nav">
           <div className="container">
             <Link className="brand-logo" to="/business">
-              CO
+              S&G
             </Link>
             <ul className="nav-items">
               <li className="nav-item">

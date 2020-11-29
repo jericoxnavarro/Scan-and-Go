@@ -1,17 +1,12 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext } from "react";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 export const BusinessesContext = createContext();
 
 export const BusinessesProvider = (props) => {
-  const [business, setBusiness] = useState("");
+  const [business, setBusiness] = useState(cookies.get("businesseID"));
 
-  useEffect(() => {
-    if (cookies.get("businesseID")) {
-      setBusiness(cookies.get("businesseID"));
-    }
-  }, []);
   return (
     <BusinessesContext.Provider value={[business, setBusiness]}>
       {props.children}

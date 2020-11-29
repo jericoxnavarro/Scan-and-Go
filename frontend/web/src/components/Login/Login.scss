@@ -12,16 +12,38 @@ $black: #000000;
   width: 100vw;
   padding: 150px 0px;
   padding-bottom: 50px;
-
+  background-color: $secondary;
   .container {
-    .login-form {
-      width: 60%;
+    flex-direction: row;
+    padding-bottom: 0px;
+    .info-login {
       height: 100%;
+      width: 45%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
 
+      .login-title {
+        font-size: 1.7rem;
+        margin: 0px;
+      }
+      .login-info {
+        margin-bottom: 50px;
+      }
+    }
+    .login-form {
+      width: 55%;
+      height: 100%;
       input {
-        font-size: 24px;
+        font-size: 20px;
+      }
+      label {
+        margin-bottom: 10px;
       }
       .title {
+        color: $secondary;
         margin-bottom: 20px;
       }
       .log-in-form {
@@ -30,7 +52,7 @@ $black: #000000;
         .error {
           background-color: $red;
           height: 60px;
-          width: 60%;
+          width: 80%;
           display: flex;
           justify-content: center;
           align-items: center;
