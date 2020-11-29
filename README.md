@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://scanandgo.herokuapp.com/">
-    <img src="images/CodeBreaker.png" alt="Logo" width="80" height="80">
+    <img src="images/CodeBreaker.png" alt="Logo" width="200" height="80">
   </a>
 
   <h3 align="center">:zap:Scan&Go:zap:</h3>
@@ -38,12 +38,17 @@
 
 - [Website Link](https://scanandgo.herokuapp.com/)
 - [API Link](https://hackfest-2020.herokuapp.com/api/)
-  [![Scan$Go][product-sample6]](https://scanandgo.herokuapp.com/)
-  [![Scan$Go][product-sample5]](https://scanandgo.herokuapp.com/)
-  [![Scan$Go][product-sample4]](https://scanandgo.herokuapp.com/)
-  [![Scan$Go][product-sample3]](https://scanandgo.herokuapp.com/)
-  [![Scan$Go][product-sample2]](https://scanandgo.herokuapp.com/)
-  [![Scan$Go][product-sample1]](https://scanandgo.herokuapp.com/)
+
+  <p align="center">
+
+    <img src="images/sample6.PNG" alt="Logo" width="100%" height="500">
+    <img src="images/sample5.PNG" alt="Logo" width="100%" height="500">
+    <img src="images/sample4.PNG" alt="Logo" width="100%" height="500">
+    <img src="images/sample3.PNG" alt="Logo" width="100%" height="500">
+    <img src="images/sample2.PNG" alt="Logo" width="100%" height="500">
+    <img src="images/sample1.PNG" alt="Logo" width="100%" height="500">
+
+</p>
 
 Now a days every stores and business establishments are required to have a logbook to record the names and monitor the visitors for contact tracing. With this manual log book system people tend to forget to bring their own ballpen so they share ballpen to write their information. Because of that, the virus is more likely easier to spread.
 
