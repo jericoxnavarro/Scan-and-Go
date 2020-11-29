@@ -34,9 +34,10 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project:chicken:
+## About The Project :chicken:
 
 - [Website Link](https://scanandgo.herokuapp.com/)
+  The website is not responsive so i do recomend to Zoom out atleast 80%. 
 - [API Link](https://hackfest-2020.herokuapp.com/api/)
 
   <p align="center">
@@ -55,7 +56,7 @@ Now a days every stores and business establishments are required to have a logbo
 Me and my team present to you our solution with an app named Scan & Go. This app promotes faster contract tracing and helps the store monitor the list of costumers using their mobile phones.
 The scan and go app implements social distancing by making sure that no physical Contact is occurring. With the help of this app, a simple scan of the unique QR Code will log you in and give your basic information. No more writing in the log books, no more holding other people’s ballpen, and yes to easy log in.
 
-### Built With:fire:
+### Built With :fire:
 
 We use MERN Stack for Web App and Java for Mobile App.
 
@@ -66,11 +67,11 @@ We use MERN Stack for Web App and Java for Mobile App.
 
 <!-- GETTING STARTED -->
 
-## Getting Started:green_heart:
+## Getting Started :green_heart:
 
 This is how to run the files.
 
-### Installation:alien:
+### Installation :alien:
 
 1. Clone the repo
    ```sh
@@ -84,7 +85,7 @@ This is how to run the files.
 
 <!-- CONTACT -->
 
-## Contact:zap:
+## Contact :zap:
 
 Jerico Navarro - [@jericoxnavarro](https://github.com/jericoxnavarro) - jericoxnavarro16@gmail.com
 
