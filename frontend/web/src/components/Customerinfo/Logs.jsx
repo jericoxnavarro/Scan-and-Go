@@ -12,7 +12,7 @@ const Logs = ({ bus }) => {
       setBusinesses(datas);
     };
     getBusiness();
-  }, [bus]);
+  }, []);
   return (
     <>
       <div className="business-info">
