@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://scanandgo.herokuapp.com/">
-    <img src="images/CodeBreaker.png" alt="Logo" width="80" height="80">
+    <img src="images/CodeBreaker.png" alt="Logo" width="120" height="80">
   </a>
 
   <h3 align="center">:zap:Scan&Go:zap:</h3>
