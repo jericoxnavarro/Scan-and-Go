@@ -37,17 +37,17 @@
 ## About The Project :chicken:
 
 - [Website Link](https://scanandgo.herokuapp.com/)
-  The website is not responsive so i do recomend to Zoom out atleast 80%. 
+  The website is not responsive so I do recommend open it on desktop and Zoom out atleast 80%. 
 - [API Link](https://hackfest-2020.herokuapp.com/api/)
 
   <p align="center">
 
-    <img src="images/sample6.PNG" alt="Logo" width="100%" height="500">
-    <img src="images/sample5.PNG" alt="Logo" width="100%" height="500">
-    <img src="images/sample4.PNG" alt="Logo" width="100%" height="500">
-    <img src="images/sample3.PNG" alt="Logo" width="100%" height="500">
-    <img src="images/sample2.PNG" alt="Logo" width="100%" height="500">
-    <img src="images/sample1.PNG" alt="Logo" width="100%" height="500">
+    <img src="images/sample6.PNG" alt="Logo" width="100%" height="50%">
+    <img src="images/sample5.PNG" alt="Logo" width="100%" height="50%">
+    <img src="images/sample4.PNG" alt="Logo" width="100%" height="50%">
+    <img src="images/sample3.PNG" alt="Logo" width="100%" height="50%">
+    <img src="images/sample2.PNG" alt="Logo" width="100%" height="50%">
+    <img src="images/sample1.PNG" alt="Logo" width="100%" height="50%">
 
 </p>
 
